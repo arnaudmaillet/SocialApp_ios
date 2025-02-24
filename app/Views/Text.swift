@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AnimatedTextView: View {
+struct TextView: View {
     let text: String
     var animationDelay: Double = 0
     @State private var isVisible = false
@@ -25,5 +25,5 @@ struct AnimatedTextView: View {
 }
 
 #Preview {
-    AnimatedTextView(text: "Hello world !")
+    TextView(text: "Hello world !")
 }
