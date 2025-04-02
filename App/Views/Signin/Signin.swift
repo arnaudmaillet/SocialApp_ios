@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct ContentView: View {
+struct SigninView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var isPressed = false
@@ -16,11 +16,10 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-        
             VStack {
                 HStack (alignment: .top) {
-                    MapView(animationDelay: 0)
-                    IconListView(animationDelay: 0)
+                    SigninMapView(animationDelay: 0)
+                    SigninIconListView(animationDelay: 0)
                 }
                 .padding(.vertical)
                 .offset(x: -48)
@@ -30,12 +29,12 @@ struct ContentView: View {
             VStack(spacing: 20) {
                 Spacer()
                 
-                TitleView(animationDelay: 0.2)
+                SigninTitleView(animationDelay: 0.2)
                 
                 // Form Stack
                 VStack(spacing: 16) {
-                        TextFieldView(icon: "envelope", placeholder: "Email", text: $email, isSecure: false, animationDelay: 0.2)
-                        TextFieldView(icon: "lock", placeholder: "Password", text: $password, isSecure: true, animationDelay: 0.4)
+                    SigninTextFieldView(icon: "envelope", placeholder: "Email", text: $email, isSecure: false, animationDelay: 0.2)
+                    SigninTextFieldView(icon: "lock", placeholder: "Password", text: $password, isSecure: true, animationDelay: 0.4)
                     
                     HStack {
                         Spacer()
@@ -51,7 +50,7 @@ struct ContentView: View {
                 .padding()
                 
                 
-                ButtonView(isActive: email.isEmpty || password.isEmpty, animationDelay: 0.6)
+                SigninButtonView(isActive: email.isEmpty || password.isEmpty, animationDelay: 0.6)
             }
         }
     }
@@ -71,5 +70,5 @@ struct BlurView: UIViewRepresentable {
 
 
 #Preview {
-    ContentView()
+    SigninView()
 }
